@@ -1,11 +1,8 @@
-[Up To Schedule](../../README.md) - Back To [Make Incremental Changes II](../../version-control/git/local/Revert_and_branch.md) -
-Forward To [Github and Remote Version Control](../../version-control/git/github/Readme.md)
-
 # Plan for Mistakes (or: Testing)
 ----
 
 **Based on materials by Katy Huff, Rachel Slaybaugh, and Anthony
-Scopatz**
+Scopatz, original document from [boot-camps](https://github.com/UW-Madison-ACI/boot-camps/blob/2015-06-03/python/testing/Readme.md)**
 
 # What is testing?
 
@@ -53,13 +50,20 @@ algorithm may not be deterministic, was our execution within acceptable
 error bounds?" This is particularly important for anything which uses
 random numbers, eg Monte Carlo methods.
 
-# Where are tests?
+# Starting to test
 
-Let's return the the simplestats module that we began earlier:
+## Our scenario
 
-    cd ~/simplestats
+Suppose that we want to write our own set of Python functions to 
+perform basic statistical tasks.  We want to develop them in a robust 
+way, to make sure that when we use them in our analysis, our answers 
+are correct.  Thus, we will be writing tests as part of our development 
+process.  
 
-It has a file `stats.py` with the following averaging function:
+## Getting started
+
+Create a file called `stats.py`.  Copy and paste the following 
+function into the file to get started.  
 
 ```python
 def mean(vals):
@@ -69,16 +73,15 @@ def mean(vals):
     return total/length
 ```
 
-## Practice using git
+In your command line window, use `git add` and `git commit` to commit 
+our new `stats.py` file.  
 
-Make a branch in this repository for adding tests:
+```
+git add stats.py
+git commit -m "starting to work on stats functions"
+```
 
-    git checkout -b add_tests
-
-or
-
-    git branch add_tests
-    git checkout add_tests
+## First test
 
 The simplest way to add a test is to add a function that calls this function
 with arguments for which we already know the answer.
@@ -121,8 +124,8 @@ def test_float_mean():
 and try it with:
 
 ```
-In [4]: reload(s)
-In [5]: s.test_float_mean()
+In [1]: import stats as s
+In [2]: s.test_float_mean()
 ```
 
 The newest test fails, but we don't get much explanation of why it fails.
@@ -132,7 +135,7 @@ The newest test fails, but we don't get much explanation of why it fails.
     git add stats.py
     git commit -m "Added a floating point test, but if fails"
 
-# Separating Tests
+## Separating Tests
 
 It is more common to place tests in a different file so that they don't
 clutter the module that does the real work.  Let's move our tests to a new
@@ -179,6 +182,31 @@ The same tests pass and fail, but still not much explanation.
     git add stats.py test_stats.py
     git commit -m "Moved tests to a separate file to declutter module."
 
+## What should I test?
+
+One of the challenges of testing is to determine what the *edge cases* might
+be.  Here are some cases that we might try for the mean function
+
+* different lengths of lists:
+    * [2, 4, 6]
+    * [2, 4, 6, 8]
+* negative numbers:
+    * [-4, -2]
+    * [-2, 2, 4]
+* floating point numbers:
+    * [2.0, 4.0, 6.0]
+    * [2.5, 4.5, 6.0]
+
+## Short Exercise
+
+1. Add a test by adding a new function to our `test_stats.py` file.  
+2. **Practice using git:** Commit your changes to the repository
+
+    git add test_stats.py
+    git commit -m "Added more tests"
+
+## Using outside tools
+
 We could start adding some lines to give us more information about each test
 and why it might fail, but that could get tedious as we write basically the
 same things over and over for each test.  Since we don't want to repeat
@@ -190,23 +218,26 @@ and we don't want to repeat others, either.
 # Nose: A Python Testing Framework
 
 The testing framework we'll discuss today is called `nose`. However, there are
-several other testing frameworks available in most language. Most notably there
+several other testing frameworks available in most languages. Most notably there
 is [JUnit](http://www.junit.org/) in Java which can arguably attributed to
 inventing the testing framework. Google also provides a [test
 framework](http://code.google.com/p/googletest/) for C++ applications (note, there's
 also [CTest](http://cmake.org/Wiki/CMake/Testing_With_CTest)).  There
 is at least one testing framework for R:
-[testthat](http://cran.r-project.org/web/packages/testthat/index.html).
+[testthat](http://cran.r-project.org/web/packages/testthat/index.html).  
 
 ## Where do nose tests live?
 
-Nose tests are files that begin with `Test-`, `Test_`, `test-`, or
-`test_`. Specifically, these satisfy the testMatch regular expression
+Once `nose` is installed, you can run it in any directory and it will 
+find files that begin with `Test-`, `Test_`, `test-`, or
+`test_`. It will then run any functions it finds in these files (which 
+it assumes to be all of your tests).  
+<!-- Specifically, these satisfy the testMatch regular expression
 `[Tt]est[-_]`. (You can also teach `nose` to find tests by declaring them
 in the unittest.TestCase subclasses that you create in your code. You
 can also create test functions which are not unittest.TestCase
 subclasses if they are named with the configured testMatch regular
-expression.)
+expression.) -->
 
 ## Nose Test Syntax
 
@@ -222,10 +253,6 @@ need to include lines that run the tests.  We can remove the lines that call
 the tests and just use our existing `test_stat.py` file like this:
 
     nosetests test_stat.py
-
-Or from IPython:
-
-    In [1]: !nosetests test_stats.py
 
 We get a little more information, but still not that helpful.
 
@@ -249,6 +276,7 @@ assert_raises(exception, func, *args, **kwargs)
 assert_is_instance(a, b)
 # and many more!
 ```
+
 
 ## Short Exercise
 
@@ -285,38 +313,6 @@ Notice how much useful information you get from `nose` tests:
 * the total number of tests that were completed
 * the time it took to run those tests
 
-**Practice using git:** Commit this change to the repository
-
-    git add test_stats.py
-    git commit -m "Using nose tools to get even better output"
-
-
-## What should I test?
-
-One of the challenges of testing is to determine what the *edge cases* might
-be.  Here are some cases that we might try for the mean function
-
-* different lengths of lists:
-    * [2, 4, 6]
-    * [2, 4, 6, 8]
-* negative numbers:
-    * [-4, -2]
-    * [-2, 2, 4]
-* floating point numbers:
-    * [2.0, 4.0, 6.0]
-    * [2.5, 4.5, 6.0]
-
-## Short Exercise
-
-* Add tests for each of by adding either new functions or new lines to the
-  existing function.  Note: some of them may fail!
-* What is necessary to fix the failing tests?  Try using `assert_almost_equal`
-  and make it pass the test.
-
-**Practice using git:** Commit this change to the repository
-
-    git add test_stats.py
-    git commit -m "Added many more tests"
 
 # Planning for bigger mistakes
 
