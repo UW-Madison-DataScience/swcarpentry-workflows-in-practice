@@ -77,6 +77,7 @@ In your command line window, use `git add` and `git commit` to commit
 our new `stats.py` file.  
 
 ```
+git init
 git add stats.py
 git commit -m "starting to work on stats functions"
 ```
