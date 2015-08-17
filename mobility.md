@@ -7,40 +7,74 @@
 ## Overview
 
 One of the powerful ways to use version control is to maintain your workflow
-between the office, home, and wherever else you find yourself being
-productive. This type of workflow can be used extensively with both research
-work (i.e., coding project collaboration) and thesis writing (i.e., "personal"
-activities).
+between different computers at work, at home, and anywhere else you might find
+yourself doing "work". This type of workflow can be used extensively with both 
+research work (i.e. developing code, writing drafts) and personal activites 
+(i.e. updating a personal website).
 
 The workflow in this section describes three repository locations - a server, a
-work computer, and a home (laptop) computer. The server will host the "base"
-repository, and the server can live anywhere you have a connection to. For
-example, you could use your GitHub repository (described in the [Github and
-Remote Version Control](../git-and-github/Readme.md) section) as the server. If
-you have access to a server on campus (e.g., server.uni.edu), you can host your
-repository there (and it's private!).
+work computer, and a home computer. The "server" will host the authoritative
+or 'base' repository and could be anywhere you have a connection to. For
+example, you could use your GitHub repository as the server. If
+you have access to a server on campus that is appropriate (e.g., server.uni.edu), 
+you can host your base repository there (and it's private!).
 
-For the purposes of this exercise, all of the repositories will be represented
-by different folders in order to provide you with the "flavor" of how such a
-workflow would work. For example, we'll use ~/work to represent your work
-station. You should assume that ~/work is effectively your work station's home
-directory.
+For the purposes of this exercise, we'll use GitHub to store the authoritative
+'base' repository, and we'll use different directories on your laptop to represent
+two different computers you might do work on ("Laptop" and "Work"). For example, 
+we'll use ~/work to represent your work computer, and pretend like ~/work is 
+effectively the home directory (or other location) on your work computer.
 
-## Exercise: Adding a Report to Simplestats
+## Exercise: Adding a Report to Python Development Directory
 
-You've been working on your stats module for a while, and you'd like to add a
-report to it. You've heard about [Latex](http://www.latex-project.org/) and that
-it works really well with version control systems, so you wanted to try it
-out. You're spending your time writing, so you'd like to be able to move between
-work, some coffee shops, and home.
+Let's say you've been working on your stats module for a while on your Laptop, and 
+now you want to be able to continue developing the module on your Work computer. 
+Instead of sending new updates of the code to yourself via email each time, you 
+can use an authoritative repository location, like GitHub, to quickly and easily 
+update your Laptop and Work copies of the project, all while keeping a consistent 
+history of your changes across all computers.
 
-Let's start by making a laptop and work directory.
+### Set up the "Laptop" repository
 
-    $ cd
-    $ mkdir work
-    $ mkdir laptop
+Let's start by preparing our Laptop copy of the project directory (our 
+`python-novice-inflammation` directory). Make sure to `cd` into the directory first, 
+then ...
 
-### Setting Up the "Work" Repository
+* check the status of your repository, to make sure that only our `stats.py` and `test_stats.py` files are tracked.
+
+    $ git status
+    
+* make sure to ignore the `data` directory, so that we're not going to track its contents for our GitHub and Work respositories. Remember the `.gitignore` file and to check the status of the repository when done.
+
+### Set up the "Server" repository
+
+Now let's go to GitHub to initiate and empty repository that we can push to:
+* Go to your page on the GitHub website (https://github.com/username), and click on your "Repositories" tab.
+* Click the green "New" button toward the top right.
+* Enter in our the name of our repository's directory (`python-novice-inflammation`) and a description if you like, and then click the green "Create repository" button.
+
+On the page that appears after creating the repository, you'll notice 
+that one suggested next step is to "push an existing repository from 
+the command line. So let's do it!
+
+In your `python-novice-inflammation` directory on the Laptop, do the following:
+
+* Check the remotes of our Laptop repository (we shouldn't have any yet):
+
+    $ git remote -v
+    
+* Add the address of the GitHub repository as a remote named "origin", just like the GitHub page says
+
+    $ git remote add origin https://github.com/username/python-novice-inflammation.git
+    
+* Check the remotes list to confirm success, and then push our repository contents to GitHub
+
+    $ git push -u origin master
+    
+You should now be able to see that your repository files from the Laptop 
+appear in your GitHub repository for `python-novice-inflammation`!
+
+### Clone the repository to your "Work" computer
 
 Let's clone it on our "work computer". You'll find the repository is named
 properly.
