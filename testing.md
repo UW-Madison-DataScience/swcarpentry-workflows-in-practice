@@ -202,8 +202,8 @@ be.  Here are some cases that we might try for the mean function
 1. Add a test by adding a new function to our `test_stats.py` file.  
 2. **Practice using git:** Commit your changes to the repository
 
-    git add test_stats.py
-    git commit -m "Added more tests"
+	git add test_stats.py
+	git commit -m "Added more tests"
 
 ## Using outside tools
 
@@ -277,8 +277,7 @@ assert_is_instance(a, b)
 # and many more!
 ```
 
-
-## Short Exercise
+## Exercise
 
 ### Quick aside:
 
@@ -304,15 +303,19 @@ In [3]: float(num)
 Out[3]: 4.0
 ```
 
-1. Change the two tests to use `assert_equal` and run with nosetests.
-2. Fix the `mean()` function to resolve the test
+1. Change our first two tests to use `assert_equal` and run with nosetests.
+2. Fix the `mean()` function to resolve the `test_float_mean()` function. 
+3. Commit your changes. 
+4. Do you have any other failing tests?  Which `nose` functions could you use 
+to fix them?  Make those changes and commit them.  
+
+## More information
 
 Notice how much useful information you get from `nose` tests:
 * some .... to indicate progress
 * details about the failed test including the values that were not equal
 * the total number of tests that were completed
 * the time it took to run those tests
-
 
 # Planning for bigger mistakes
 
@@ -716,8 +719,3 @@ setup()
 test3()
 teardown()
 ```
-
-----
-
-[Up To Schedule](../../README.md) - Back To [Make Incremental Changes II](../../version-control/git/local/Revert_and_branch.md) -
-Forward To [Github and Remote Version Control](../../version-control/git/github/Readme.md)
