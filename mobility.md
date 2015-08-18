@@ -37,54 +37,60 @@ history of your changes across all computers.
 ### Set up the "Laptop" repository
 
 Let's start by preparing our Laptop copy of the project directory (our 
-`python-novice-inflammation` directory). Make sure to `cd` into the directory first, 
+`simplestats` directory). Make sure to `cd` into the directory first, 
 then ...
 
-* check the status of your repository, to make sure that only our `stats.py` and `test_stats.py` files are tracked.
+Check the status of your repository, to make sure that only our `stats.py` and `test_stats.py` files are tracked.
 
     $ git status
     
-* make sure to ignore the `data` directory, so that we're not going to track its contents for our GitHub and Work respositories. Remember the `.gitignore` file and to check the status of the repository when done.
+Make sure to ignore the `data` directory, so that we're not going to track its contents for our GitHub and Work respositories. Remember the `.gitignore` file and to check the status of the repository when done.
 
 ### Set up the "Server" repository
 
 Now let's go to GitHub to initiate and empty repository that we can push to:
 * Go to your page on the GitHub website (https://github.com/username), and click on your "Repositories" tab.
 * Click the green "New" button toward the top right.
-* Enter in our the name of our repository's directory (`python-novice-inflammation`) and a description if you like, and then click the green "Create repository" button.
+* Enter in our the name of our repository's directory (`simplestats`) and a description if you like, and then click the green "Create repository" button.
 
 On the page that appears after creating the repository, you'll notice 
 that one suggested next step is to "push an existing repository from 
 the command line. So let's do it!
 
-In your `python-novice-inflammation` directory on the Laptop, do the following:
+In your `simplestats` directory on the Laptop, do the following:
 
-* Check the remotes of our Laptop repository (we shouldn't have any yet):
+Check the remotes of your Laptop repository (we shouldn't have any yet):
 
     $ git remote -v
     
-* Add the address of the GitHub repository as a remote named "origin", just like the GitHub page says
+Add the address of the GitHub repository as a remote named "origin", just like the GitHub page says to:
 
-    $ git remote add origin https://github.com/username/python-novice-inflammation.git
+    $ git remote add origin https://github.com/YOU/simplestats.git
     
-* Check the remotes list to confirm success, and then push our repository contents to GitHub
+Check the remotes list again to confirm success, and then push your repository contents to the GitHub remote, just like the GitHub page says to:
 
     $ git push -u origin master
     
 You should now be able to see that your repository files from the Laptop 
-appear in your GitHub repository for `python-novice-inflammation`!
+appear in your GitHub repository for `simplestats`!
 
-### Clone the repository to your "Work" computer
+### Clone the repository to your "Work" computer, and do some work
 
-Let's clone it on our "work computer". You'll find the repository is named
-properly.
+Now we want to be able to work with the contents of our `simplestats` 
+repository on a different computer. To represent this other computer, 
+let's create a "Work" directory in your home directory.
 
-    $ cd ~/work
+    $ cd ~
+    $ mkdir Work
+
+Now clone our simplestats repository from "GitHub" (our server) to the "Work" 
+computer.
+
     $ git clone https://github.com/YOU/simplestats.git
     $ ls
     simplestats
 
-Go ahead and ```cd``` into simplestats and look around at the files. Also, take a
+Let's `cd` into simplestats and look around at the files. Also, take a
 gander at that remote.
 
     $ cd simplestats
@@ -94,64 +100,26 @@ gander at that remote.
     origin  https://github.com/YOU/simplestats.git (fetch)
     origin  https://github.com/YOU/simplestats.git (push)
 
-Let's do some work in a branch.
-
-    $ git branch report
-    $ git checkout report
-
-Go ahead an add a file and commit it.
+Now we can make some changes on the Work computer. Let's add a file, commit it 
+to the repository, and push our changes back to the GitHub repository (our 
+"origin" remote):
 
     $ touch report.tex
     $ git add report.tex
     $ git commit -m "added the base tex file for my report"
-    $ git push origin report
+    $ git push origin master
 
-Note that if you're working on your own repository's master branch, that last
-command would look like ```git push origin master```.
+### Update the "Laptop" repository, and do some more work
 
-### Setting Up the "Laptop" Repository
+Let's say we're working on our Laptop computer again, and now we want to add 
+details to our report file, so we need to update our Laptop repository. 
+First `cd` into the Laptop `simplestats` directory (not the one in "Work"), 
+then:
 
-Ok, you've spent a long day at work. Maybe you still have a little more to do,
-but you'd really rather go home and cook dinner first. Let's set up that "laptop
-repository" so you can pick up exactly where you left off.
+    $ git pull origin master
 
-    $ cd ~/laptop
-    $ git clone https://github.com/YOU/simplestats.git
-    $ ls
-    simplestats
-
-Let's investigate what's inside.
-
-    $ cd simplestats
-    $ git checkout report
-    $ ls -a
-    .  ..  .git  README.md  report.tex stats.py  test_stats.py
-
-Ok, awesome, we were able to checkout the updated version of the repository.
-
-Let's try making one set of changes. We'll add some content to the report
-
-    $ echo "this is one fancy report" >> report.tex
-    $ git add report.tex
-    $ git commit -m "added some content to the report"
-    $ git push origin report
-
-So now the home machine is synced with the repository that's on the
-server. Any time you're doing work, as long as you **commit and push** the work
-you're doing, it will be available to you anywhere you have access to the
-internet. In fact, you don't even **need** access to the internet. Once your
-repository is up to date, you can do all your editing and committing without
-being online. Once you have a connection again, you can push your changes.
-
-And now let's update our work machine to also be synced against our github
-repository.
-
-    $ cd ~/work/simplestats
-    $ git pull origin report
-    $ tail report.tex
-    this is one fancy report
-
-Work and laptop are synced again!
+Our Work and Laptop copies are synced! Check with an `ls` command to see that 
+the `report.tex` file now exists in our Laptop copy of `simplestats`.
 
 #### Aside: Version-Control Best Practices
 
