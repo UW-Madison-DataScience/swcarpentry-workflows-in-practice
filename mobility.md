@@ -1,38 +1,40 @@
-[Up To Schedule](../../../README.md#schedule) - Back To [Make Changes from Anywhere (GitHub)](../github/Readme.md) - Forward To [Collaborate](../collaborate/Readme.md)
-
 # Mobility: Using Version Control at Work and Home
 
 **Based on material by Matt Gidden**
 
 ## Overview
 
-One of the powerful ways to use version control is to maintain your workflow
-between different computers at work, at home, and anywhere else you might find
-yourself doing "work". This type of workflow can be used extensively with both 
-research work (i.e. developing code, writing drafts) and personal activites 
-(i.e. updating a personal website).
+One of the powerful ways to use version control is to maintain your development 
+workflow when you need mobility as you move between different computers at work, 
+at home, and anywhere else you might find yourself doing "work".
 
-The workflow in this section describes three repository locations - a server, a
-work computer, and a home computer. The "server" will host the authoritative
-or 'base' repository and could be anywhere you have a connection to. For
-example, you could use your GitHub repository as the server. If
-you have access to a server on campus that is appropriate (e.g., server.uni.edu), 
-you can host your base repository there (and it's private!).
-
-For the purposes of this exercise, we'll use GitHub to store the authoritative
-'base' repository, and we'll use different directories on your laptop to represent
-two different computers you might do work on ("Laptop" and "Work"). For example, 
-we'll use ~/work to represent your work computer, and pretend like ~/work is 
-effectively the home directory (or other location) on your work computer.
-
-## Exercise: Adding a Report to Python Development Directory
-
-Let's say you've been working on your stats module for a while on your Laptop, and 
-now you want to be able to continue developing the module on your Work computer. 
+Let's say you've been working on a project for a while on your laptop, and 
+now you want to be able to continue developing the same files on a computer at work. 
 Instead of sending new updates of the code to yourself via email each time, you 
 can use an authoritative repository location, like GitHub, to quickly and easily 
-update your Laptop and Work copies of the project, all while keeping a consistent 
-history of your changes across all computers.
+update your laptop and work copies of the project, all while keeping a consistent 
+history of your changes across all computers. Importantly, this type of workflow can be used extensively with 
+both research work (i.e. developing code, writing drafts) and personal activites 
+(i.e. updating a personal website), and across any number of computers.
+
+## Exercise: Adding a Report to Your Python Development Directory
+
+For this example, we'll add changes to our `simplestats` repository by 
+specifically creating and editing a report file. We'll use 
+three repository locations - a server, a work computer, 
+and a laptop computer. The "server" will host the authoritative
+or 'base' repository and could be anywhere you have a connection to. For 
+example, you could use GitHub as the server, which is what we'll use for 
+the example. If you have access to a server on campus that is appropriate 
+(e.g., server.uni.edu), you could host your base repository there (and it's 
+private!). 
+
+To represent separate "Laptop" and "Work" computers, we'll say 
+that your current copy of `simplestats` is on your "Laptop", and we'll use 
+a separate "Work" directory to represent your work computer. After setting up 
+a clean `simplestats` repository on GitHub, you'll then be able to push and 
+pull changes as you transition between working on the Laptop and Home copies 
+of the repository. Below are the major steps we need to take
 
 ### Set up the "Laptop" repository
 
@@ -40,18 +42,20 @@ Let's start by preparing our Laptop copy of the project directory (our
 `simplestats` directory). Make sure to `cd` into the directory first, 
 then ...
 
-Check the status of your repository, to make sure that only our `stats.py` and `test_stats.py` files are tracked.
+Check the status of your repository, to make sure that only our 
+`stats.py` and `test_stats.py` files are tracked.
 
     $ git status
     
-Make sure to ignore the `data` directory, so that we're not going to track its contents for our GitHub and Work respositories. Remember the `.gitignore` file and to check the status of the repository when done.
+Make sure that there are no more changes to commit and that the files ending 
+in `.pyc` are added to a `.gitignore` file.
 
 ### Set up the "Server" repository
 
-Now let's go to GitHub to initiate and empty repository that we can push to:
+Now let's go to GitHub to initiate an empty repository to serve as our base:
 * Go to your page on the GitHub website (https://github.com/username), and click on your "Repositories" tab.
 * Click the green "New" button toward the top right.
-* Enter in our the name of our repository's directory (`simplestats`) and a description if you like, and then click the green "Create repository" button.
+* Enter in our the name of our repository's directory (`simplestats`) and a description if you like, and then click the green "Create repository" button (without modifying any other options).
 
 On the page that appears after creating the repository, you'll notice 
 that one suggested next step is to "push an existing repository from 
@@ -63,16 +67,15 @@ Check the remotes of your Laptop repository (we shouldn't have any yet):
 
     $ git remote -v
     
-Add the address of the GitHub repository as a remote named "origin", just like the GitHub page says to:
+Add the address of the GitHub repository as a remote named "origin" 
+and then push our Laptop `simplestats` contents to the GiHub repository, 
+just like the GitHub page says to:
 
     $ git remote add origin https://github.com/YOU/simplestats.git
-    
-Check the remotes list again to confirm success, and then push your repository contents to the GitHub remote, just like the GitHub page says to:
-
     $ git push -u origin master
     
 You should now be able to see that your repository files from the Laptop 
-appear in your GitHub repository for `simplestats`!
+appear in your online GitHub repository for `simplestats`!
 
 ### Clone the repository to your "Work" computer, and do some work
 
@@ -84,7 +87,8 @@ let's create a "Work" directory in your home directory.
     $ mkdir Work
 
 Now clone our simplestats repository from "GitHub" (our server) to the "Work" 
-computer.
+computer (make sure to replace "you" or to grab the address from the 
+`simplestats` repository page on GitHub.
 
     $ git clone https://github.com/YOU/simplestats.git
     $ ls
@@ -95,7 +99,7 @@ gander at that remote.
 
     $ cd simplestats
     $ ls -a
-    .  ..  .git  README.md  stats.py  test_stats.py
+    .  ..  .git  stats.py  test_stats.py
     $ git remote -v
     origin  https://github.com/YOU/simplestats.git (fetch)
     origin  https://github.com/YOU/simplestats.git (push)
@@ -108,8 +112,10 @@ to the repository, and push our changes back to the GitHub repository (our
     $ git add report.tex
     $ git commit -m "added the base tex file for my report"
     $ git push origin master
+    
+You should now also be able to see the addition of this file on GitHub!
 
-### Update the "Laptop" repository, and do some more work
+### Update the "Laptop" repository, in preparation for more work
 
 Let's say we're working on our Laptop computer again, and now we want to add 
 details to our report file, so we need to update our Laptop repository. 
@@ -119,18 +125,38 @@ then:
     $ git pull origin master
 
 Our Work and Laptop copies are synced! Check with an `ls` command to see that 
-the `report.tex` file now exists in our Laptop copy of `simplestats`.
+the `report.tex` file now exists in our Laptop copy of `simplestats`. Now you can
 
-#### Aside: Version-Control Best Practices
+
+* * * * 
+**Exercise On Your Own: Add details to the report file!**
+
+Alright, now that you have the workflow down, use commands similar to the above 
+to do the following:
+
+1.  Add a statement to the `report.tex` file - something simple like "This is an 
+awesome report" will be just fine for our example. Make sure to add and commit 
+your change.
+
+2.  Push the changes to your GitHub repository.
+
+3.  Pull the changes down to the repository in your hypothetical "Work" computer, 
+and check to see that your report.tex file has the added text!
+
+* * * * 
+
+#### Note: Version-Control Best Practices
 
 At this point, you're fully set up to work in a best-practice, version-control
-work flow. Experience shows that it's best to work in branches (i.e., other than
-master) to make sure the master branch stays up-to-date with your server's
-(origin's) master branch. This stuff may not be intuitive when you're first
-starting out, though, so just play around and get used to the general work flow
-for now. You'll get better at it over time.
+workflow. This stuff may not be intuitive when you're first
+starting out, though, so just play around and get used to the general workflow
+for now. You'll get better at it over time. When you'd like to extend this 
+example to one of your own projects and/or use a group server instead of GitHub, 
+you might also take a gander at the tips below.
 
-#### Aside: Latex and the Limits of the Version Control Workflow
+## Tips for Your Own REAL Work
+
+#### Latex and the Limits of the Version Control Workflow
 
 Have you ever struggled with formatting Word's equations, chapters,
 bibliography, etc.? [Latex](http://www.latex-project.org/) works wonders with
@@ -162,7 +188,7 @@ are literally altering text files, so there's **nothing else** going on behind
 the scenes. Word files, etc., have lot's going on under the hood, and so are
 poor candidates for version control. 
 
-#### Aside: Setting Up a "Base" Repository
+#### Setting Up a "Base" Repository
 
 If you want to use GitHub as your repository host, you can safely skip this. If
 you want to use a university server as your repository host, you'll have to go
@@ -187,7 +213,7 @@ section.
 This is git's way of storing your repository's information. You shouldn't touch
 this, and you can safely ignore it.
 
-#### Aside: Bare Repositories
+#### Bare Repositories
 
 A bare repository is meant to simply **store** your files. It actually stores
 the contents of the .git directory that you see in all normal repositories. It's
@@ -210,5 +236,3 @@ pretty simple, and described on the [Fork help
 page](https://help.github.com/articles/fork-a-repo#step-2-clone-your-fork).
 
 ----
-
-[Up To Schedule](../../../README.md#schedule) - Back To [Make Changes from Anywhere (GitHub)](../github/Readme.md) - Forward To [Collaborate](../collaborate/Readme.md)
