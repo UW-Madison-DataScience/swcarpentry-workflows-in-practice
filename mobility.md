@@ -85,6 +85,7 @@ let's create a "Work" directory in your home directory.
 
     $ cd ~
     $ mkdir Work
+    $ cd Work
 
 Now clone our simplestats repository from "GitHub" (our server) to the "Work" 
 computer (make sure to replace "you" or to grab the address from the 
