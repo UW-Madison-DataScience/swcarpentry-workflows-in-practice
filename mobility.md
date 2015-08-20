@@ -5,8 +5,8 @@
 ## Overview
 
 One of the powerful ways to use version control is to maintain your development 
-workflow when you need mobility as you move between different computers at work, 
-at home, and anywhere else you might find yourself doing "work".
+workflow as you move between different computers at work, 
+at home, and anywhere else you might find yourself developing code.
 
 Let's say you've been working on a project for a while on your laptop, and 
 now you want to be able to continue developing the same files on a computer at work. 
@@ -17,7 +17,7 @@ history of your changes across all computers. Importantly, this type of workflow
 both research work (i.e. developing code, writing drafts) and personal activites 
 (i.e. updating a personal website), and across any number of computers.
 
-## Exercise: Adding a Report to Your Python Development Directory
+## Exercise: Adding a Report to Our Python Development Directory
 
 For this example, we'll add changes to our `simplestats` repository by 
 specifically creating and editing a report file. We'll use 
@@ -32,15 +32,15 @@ private!).
 To represent separate "Laptop" and "Work" computers, we'll say 
 that your current copy of `simplestats` is on your "Laptop", and we'll use 
 a separate "Work" directory to represent your work computer. After setting up 
-a clean `simplestats` repository on GitHub, you'll then be able to push and 
-pull changes as you transition between working on the Laptop and Home copies 
-of the repository. Below are the major steps we need to take
+a clean `simplestats` repository on GitHub, we'll then be able to push and 
+pull changes between working on the "Laptop" and "Home" copies of the 
+repository computers, keeping all repository copies up-to-date. Below are the 
+major steps we need to take
 
 ### Set up the "Laptop" repository
 
 Let's start by preparing our Laptop copy of the project directory (our 
-`simplestats` directory). Make sure to `cd` into the directory first, 
-then ...
+`simplestats` directory). Make sure to `cd` into the directory first.
 
 Check the status of your repository, to make sure that only our 
 `stats.py` and `test_stats.py` files are tracked.
@@ -52,18 +52,19 @@ in `.pyc` are added to a `.gitignore` file.
 
 ### Set up the "Server" repository
 
-Now let's go to GitHub to initiate an empty repository to serve as our base:
+Now let's go to GitHub to initiate an empty repository to serve as our base.
+Specifically,:
 * Go to your page on the GitHub website (https://github.com/username), and click on your "Repositories" tab.
 * Click the green "New" button toward the top right.
-* Enter in our the name of our repository's directory (`simplestats`) and a description if you like, and then click the green "Create repository" button (without modifying any other options).
+* Enter in the name of our repository's directory ("`simplestats`") and a description if you like, and then click the green "Create repository" button (without modifying any other options).
 
 On the page that appears after creating the repository, you'll notice 
 that one suggested next step is to "push an existing repository from 
-the command line. So let's do it!
+the command line". So let's do it!
 
-In your `simplestats` directory on the Laptop, do the following:
+In our `simplestats` directory on the Laptop, let's do the following:
 
-Check the remotes of your Laptop repository (we shouldn't have any yet):
+Check the remotes of our Laptop repository (we shouldn't have any yet):
 
     $ git remote -v
     
@@ -81,15 +82,15 @@ appear in your online GitHub repository for `simplestats`!
 
 Now we want to be able to work with the contents of our `simplestats` 
 repository on a different computer. To represent this other computer, 
-let's create a "Work" directory in your home directory.
+let's create a "Work" directory in the home directory.
 
     $ cd ~
     $ mkdir Work
     $ cd Work
 
-Now clone our simplestats repository from "GitHub" (our server) to the "Work" 
-computer (make sure to replace "you" or to grab the address from the 
-`simplestats` repository page on GitHub.
+Now we need to clone our simplestats repository from "GitHub" (our server) to 
+the "Work" computer. Make sure to replace "YOU" or to grab the repository address 
+from your `simplestats` repository page on GitHub.
 
     $ git clone https://github.com/YOU/simplestats.git
     $ ls
@@ -126,7 +127,7 @@ then:
     $ git pull origin master
 
 Our Work and Laptop copies are synced! Check with an `ls` command to see that 
-the `report.tex` file now exists in our Laptop copy of `simplestats`. Now you can
+the `report.tex` file now exists in our Laptop copy of `simplestats`.
 
 
 * * * * 
