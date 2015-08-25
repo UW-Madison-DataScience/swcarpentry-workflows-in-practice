@@ -62,8 +62,17 @@ process.
 
 ## Getting started
 
-Create a file called `stats.py`.  Copy and paste the following 
-function into the file to get started.  
+We'll be creating our Python files inside a new directory.  Create a new 
+directory on your Desktop called `simplestats`.  Open up a basic text editor. Also 
+open a terminal window and `cd` to our new `simplestats` directory: 
+
+```
+cd Desktop/simplestats
+```
+
+Using your text editor, create a new file named `stats.py` and save it in 
+the `simplestats` directory.  Then copy and paste the following 
+function into the `stats.py` to get started.  
 
 ```python
 def mean(vals):
@@ -74,7 +83,8 @@ def mean(vals):
 ```
 
 In your command line window, use `git add` and `git commit` to commit 
-our new `stats.py` file.  
+our new `stats.py` file.  Remember that we need to use `git init` once 
+at the start to initialize the repository!  
 
 ```
 git init
@@ -255,14 +265,8 @@ the tests and just use our existing `test_stat.py` file like this:
 
     nosetests test_stat.py
 
-We get a little more information, but still not that helpful.
-
-**Practice using git:** Commit this change to the repository
-
-    git add test_stats.py
-    git commit -m "Introduced nose testing"
-
-However, nose itself defines number of convenient assert functions which can
+In addition to `nosetests`, `nose` itself defines number of 
+convenient assert functions which can
 be used to test more specific aspects of the code base.
 
 ```python
@@ -277,6 +281,21 @@ assert_raises(exception, func, *args, **kwargs)
 assert_is_instance(a, b)
 # and many more!
 ```
+
+Adding an `import` statement, we can change one of our test to use `assert_equal`: 
+
+```python
+from nose.tools import assert_equal
+
+def test_mean():
+    """Test some standard behavior of the mean() function."""
+    assert_equal(mean([2, 4]), 3)
+```
+
+**Practice using git:** Commit this change to the repository
+
+    git add test_stats.py
+    git commit -m "Introduced nose testing"
 
 ## Exercise
 
@@ -304,8 +323,8 @@ In [3]: float(num)
 Out[3]: 4.0
 ```
 
-1. Change our first two tests to use `assert_equal` and run with nosetests.
-2. Fix the `mean()` function to resolve the `test_float_mean()` function. 
+1. Fix the `mean()` function in `stats.py` to resolve the `test_float_mean()` function. 
+2. Change our other tests to use `assert_equal` and run with nosetests.
 3. Commit your changes. 
 4. Do you have any other failing tests?  Which `nose` functions could you use 
 to fix them?  Make those changes and commit them.  
@@ -318,7 +337,7 @@ Notice how much useful information you get from `nose` tests:
 * the total number of tests that were completed
 * the time it took to run those tests
 
-# Planning for bigger mistakes
+# Advanced Testing
 
 What happens if someone tries to use this function with strings?
 
@@ -361,7 +380,6 @@ def mean(vals):
 
     git add test_stats.py
     git commit -m "Added extra error message for TypeError."
-
 
 # When should we test?
 
