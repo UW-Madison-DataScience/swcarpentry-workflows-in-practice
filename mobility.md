@@ -135,7 +135,8 @@ the `report.tex` file now exists in our Laptop copy of `simplestats`. Now you ca
 Alright, now that you have the workflow down, use commands similar to the above 
 to do the following:
 
-1.  Add a statement to the `report.tex` file - something simple like "This is an 
+1.  Add a statement to the `report.tex` file in your "Laptop" copy of the simplestats 
+directory - something simple like "This is an 
 awesome report" will be just fine for our example. Make sure to add and commit 
 your change.
 
