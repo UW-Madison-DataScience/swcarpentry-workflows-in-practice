@@ -16,6 +16,12 @@ Links and tutorials for independent learning
 * [vim adventures](http://vim-adventures.com/)
 * [Lines of code](http://ilovecharts.tumblr.com/post/65446053343/so-much-code)
 
+## At UW Madison
+* [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
+* [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
+* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
+* [Advanced Computing Initiative](http://aci.wisc.edu/services/large-scale/)
+
 # Funny things
 
 Humorous resources for breaking up, introducing, or concluding a lesson
