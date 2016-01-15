@@ -84,8 +84,8 @@ def mean(vals):
 
 ## Testing?  
 
-The simplest way to add a test is to add a function that calls this function
-with arguments for which we already know the answer.
+The most naive test is simply printing out an example of our function, and 
+checking ourselves whether the answer is correct.  
 
 ```python
 def mean(vals):
@@ -156,7 +156,32 @@ def mean(vals):
     git add stats.py
     git commit -m "Adding assert to catch input errors" 
 
-# Edge Cases and Unit Tests
+# Unit Tests
+
+## Create Unit Test Functions
+
+If we make the print statement we've been using so far into a function, using 
+asserts, we can make these print 
+statements more meaningful.  Let's make these changes to `stats.py`: 
+
+```python
+def test_mean():
+	assert mean([2,4]) == 3.0, 'Simple mean test'
+```
+
+To make it even easier to test, we can add some lines at the bottom of
+`stats.py` to run each of our tests:
+
+```python
+test_mean()
+```
+
+**Practice using git:** Commit this addition to the repository
+
+    git add stats.py
+    git commit -m "Adding real function to test" 
+
+## Edge Cases
 
 One of the challenges of testing is 
 to determine what the *edge cases* might
@@ -182,7 +207,8 @@ The edge case we'll consider is an empty list - what should we do with that inpu
 If we add the following statement to the bottom of `stats.py`, 
 
 ```python
-print(mean([]))
+def test_empty_list():
+    assert mean([]) == 0.0, 'Empty list test'```
 ```
 
 What happens if we run `python stats.py`?  
@@ -197,36 +223,13 @@ Commit this addition to the repository
     git add stats.py
     git commit -m "Handling example of empty list" 
 
-## Create Unit Test Functions
-
-If we make these print statement we've been using so far into functions, using 
-asserts, we can make these print 
-statements more meaningful.  Let's make these changes to `stats.py`: 
-
-```python
-
-def test_mean():
-	assert mean([2,4]) == 3.0, 'Simple mean test'
-
-def test_empty_list():
-    assert mean([]) == 0.0, 'Empty list test'
-```
-
-To make it even easier to test, we can add some lines at the bottom of
-`stats.py` to run each of our tests:
-
-```python
-test_mean()
-test_empty_list()
-```
-
 ### Short Exercise
 
 1. Add one more test function, testing a set of values of your choice.   
 2. **Practice using git:** Commit your changes to the repository
 
-	git add test_stats.py
-	git commit -m "Added more test functions"
+		git add test_stats.py
+		git commit -m "Added more test functions"
 
 Example test: 
 
@@ -255,7 +258,7 @@ def mean(vals):
     total = sum(vals)
     length = len(vals)
     if length == 0:
-    	return 0.0
+    	return "no data"
     else
     	return total/length
 ```
@@ -336,10 +339,10 @@ def test_mean():
 
 ### Short Exercise
 
-Change our "empty list" test to use assert_equal.  Commit your changes.  
+Change our "empty list" test to use `assert_equal`.  Commit your changes.  
 
     git add test_stats.py
-    git commit -m "Introduced nose testing"
+    git commit -m "Introduced nose functions"
 
 `assert_equal` is not the only tool we can use.  `nose` defines many other 
 convenient assert functions which can
@@ -359,14 +362,15 @@ assert_is_instance(a, b)
 ```
 
 Let's add this to our code: 
-```
+```python
 from nose.tools import assert_equal, assert_almost_equal
 
-```python
 def test_float_mean():
     """Test some standard behavior when the result is not an integer."""
     assert_amost_equal(mean([1, .5, .5]) == .66, 1)
 ```
+
+And commit changes.  
 
 # A Testing Development Workflow
 
