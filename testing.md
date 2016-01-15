@@ -132,7 +132,7 @@ An `assert` is like a specialized "if/then" statement for catching errors.  The
 and is common when writing tests.
 
 We want to catch the error that would happen if a string was passed instead of 
-a list of values?  
+a list of values.  
 
 First of all, Python will catch this on its own: 
 ```python
@@ -156,12 +156,9 @@ def mean(vals):
     git add stats.py
     git commit -m "Adding assert to catch input errors" 
 
-# Unit Tests
+# Edge Cases and Unit Tests
 
-## Edge cases
-
-We also need to start considering other ways that this 
-function may break. One of the challenges of testing is 
+One of the challenges of testing is 
 to determine what the *edge cases* might
 be.  Here are some cases that we might try for the mean function
 
@@ -175,7 +172,12 @@ be.  Here are some cases that we might try for the mean function
     * [2.0, 4.0, 6.0]
     * [2.5, 4.5, 6.0]
 
-Another one would be an empty list - what should we do with that input?  
+Edge cases are important because they may reveal important decisions you need 
+to make about our software, and its design.  We will also be turning each 
+edge case into something called a "unit test", where it tests one piece of 
+our code - in this case, our `mean` function.  
+
+The edge case we'll consider is an empty list - what should we do with that input?  
 
 If we add the following statement to the bottom of `stats.py`, 
 
@@ -185,8 +187,7 @@ print(mean([]))
 
 What happens if we run `python stats.py`
 
-
-### Small Exercise
+### Short Exercise
 
 Using an if/else statement, how can you adapt the current function to 
 handle the empty list case?  
@@ -196,50 +197,13 @@ Commit this addition to the repository
     git add stats.py
     git commit -m "Handling example of empty list" 
 
-# Test Organization
-
-> "It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically."
-> 
-> -- [Hadley Wickham](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)
-
-## Separating Tests
-
-It is more common to place tests in a different file so that they don't
-clutter the module that does the real work.  Let's move our tests to a new
-file called `test_stats.py`.  Now, our `stats.py` file contains only:
-
-```python
-def mean(vals):
-    """Calculate the arithmetic mean of a list of numbers in vals"""
-    assert type(vals) is list, 'Input format is incorrect'
-    total = sum(vals)
-    length = len(vals)
-    if length == 0:
-    	return 0.0
-    else
-    	return total/length
-```
-
-and our `test_stats.py` file contains:
-
-```python
-print(mean([2, 4]))
-# print(mean("hello"))
-print(mean([]))
-```
-
-Commit your changes to the repository
-
-	git add test_stats.py
-	git commit -m "moving tests into a new file"
-
 ## Create Unit Test Functions
 
-If we make these into functions, using asserts, we can make these print 
-statements more meaningful.  Let's make these changes to `test_stats.py`: 
+If we make these print statement we've been using so far into functions, using 
+asserts, we can make these print 
+statements more meaningful.  Let's make these changes to `stats.py`: 
 
 ```python
-from stats import mean
 
 def test_mean():
 	assert mean([2,4]) == 3.0, 'Simple mean test'
@@ -271,6 +235,51 @@ def test_float_mean():
     """Test some standard behavior when the result is not an integer."""
     assert(mean([1, .5, .5]) == .666)
 ```
+
+# Test Organization
+
+> "It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically."
+> 
+> -- [Hadley Wickham](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)
+
+## Separating Tests
+
+It is more common to place tests in a different file so that they don't
+clutter the module that does the real work.  Let's move our tests to a new
+file called `test_stats.py`.  Now, our `stats.py` file contains only:
+
+```python
+def mean(vals):
+    """Calculate the arithmetic mean of a list of numbers in vals"""
+    assert type(vals) is list, 'Input format is incorrect'
+    total = sum(vals)
+    length = len(vals)
+    if length == 0:
+    	return 0.0
+    else
+    	return total/length
+```
+
+and our `test_stats.py` file contains:
+
+```python
+from stats import mean
+
+def test_mean():
+	assert mean([2,4]) == 3.0, 'Simple mean test'
+
+def test_empty_list():
+    assert mean([]) == 0.0, 'Empty list test'
+
+def test_float_mean():
+    """Test some standard behavior when the result is not an integer."""
+    assert(mean([1, .5, .5]) == .666)
+```
+
+Commit your changes to the repository
+
+	git add test_stats.py
+	git commit -m "moving tests into a new file"
 
 ## Nose: A Python Testing Framework
 
