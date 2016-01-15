@@ -82,17 +82,7 @@ def mean(vals):
     return total/length
 ```
 
-In your command line window, use `git add` and `git commit` to commit 
-our new `stats.py` file.  Remember that we need to use `git init` once 
-at the start to initialize the repository!  
-
-```
-git init
-git add stats.py
-git commit -m "starting to work on stats functions"
-```
-
-## First test
+## Testing?  
 
 The simplest way to add a test is to add a function that calls this function
 with arguments for which we already know the answer.
@@ -104,98 +94,75 @@ def mean(vals):
     length = len(vals)
     return total/length
     
-def test_mean():
-    """Test some standard behavior of the mean() function."""
-    assert(mean([2, 4]) == 3)
+print(mean([2, 4]))
 ```
 
-The `assert` command will make your program stop if the condition is not true
+We can run this code using `python` from the command line: 
+
+```bash
+python stats.py
+```
+
+## First, version control
+
+In your command line window, use `git add` and `git commit` to commit 
+our new `stats.py` file.  Remember that we need to use `git init` once 
+at the start to initialize the repository!  
+
+```
+git init
+git add stats.py
+git commit -m "starting to work on stats functions"
+```
+
+## Second, what could go wrong?  
+
+We've include one very informal test in our program.  But this isn't 
+enough to produce a bug-free piece of software.  What are some things 
+we need to consider in advance?  
+
+# Assertions
+
+Assertions and exceptions are a way to test *within* the program, to make 
+sure that the pieces of your function are behaving as you would expect.  
+We'll start by covering assertions, and get to exceptions.  
+
+An `assert` is like a specialized "if/then" statement for catching errors.  The 
+`assert` command will make your program stop if the condition is not true
 and is common when writing tests.
 
-You can try this test in iPython:
+We want to catch the error that would happen if a string was passed instead of 
+a list of values?  
 
-```
-In [1]: import stats as s
-In [2]: s.test_mean()
-```
-
-**Practice using git:** Commit this addition to the repository
-
-    git add stats.py
-    git commit -m "Added the first test"
-
-Let's add one more test:
-
+First of all, Python will catch this on its own: 
 ```python
-def test_float_mean():
-    """Test some standard behavior when the result is not an integer."""
-    assert(mean([1, 2]) == 1.5)
+print(mean("hello"))
 ```
 
-and try it with:
-
-```
-In [1]: import stats as s
-In [2]: s.test_float_mean()
-```
-
-The newest test fails, but we don't get much explanation of why it fails.
-
-**Practice using git:** Commit this change to the repository
-
-    git add stats.py
-    git commit -m "Added a floating point test, but if fails"
-
-## Separating Tests
-
-It is more common to place tests in a different file so that they don't
-clutter the module that does the real work.  Let's move our tests to a new
-file called `test_stats.py`.  Now, our `stats.py` file contains only:
+But we'd like to include a more descriptive message, and control how 
+the assertion happens.  
 
 ```python
 def mean(vals):
     """Calculate the arithmetic mean of a list of numbers in vals"""
+    assert type(vals) is list, 'Input format is incorrect'
     total = sum(vals)
     length = len(vals)
     return total/length
 ```
 
-and our `test_stats.py` file contains:
+**Practice using git:** Commit this addition to the repository
 
-```python
-from stats import mean
+    git add stats.py
+    git commit -m "Adding assert to catch input errors" 
 
-def test_mean():
-    """Test some standard behavior of the mean() function."""
-    assert(mean([2, 4]) == 3)
+# Unit Tests
 
-def test_float_mean():
-    """Test some standard behavior when the result is not an integer."""
-    assert(mean([1, 2]) == 1.5)
-```
+## Edge cases
 
-To make it even easier to test, we can add some lines at the bottom of
-`test_stats.py` to run each of our tests:
-
-```python
-test_mean()
-test_float_mean()
-```
-
-and then run this from the command-line:
-
-    python test_stats.py
-
-The same tests pass and fail, but still not much explanation.
-
-**Practice using git:** Commit this change to the repository
-
-    git add stats.py test_stats.py
-    git commit -m "Moved tests to a separate file to declutter module."
-
-## What should I test?
-
-One of the challenges of testing is to determine what the *edge cases* might
+We also need to start considering other ways that this 
+function may break. One of the challenges of testing is 
+to determine what the *edge cases* might
 be.  Here are some cases that we might try for the mean function
 
 * different lengths of lists:
@@ -208,15 +175,104 @@ be.  Here are some cases that we might try for the mean function
     * [2.0, 4.0, 6.0]
     * [2.5, 4.5, 6.0]
 
-## Short Exercise
+Another one would be an empty list - what should we do with that input?  
 
-1. Add a test by adding a new function to our `test_stats.py` file.  
+If we add the following statement to the bottom of `stats.py`, 
+
+```python
+print(mean([]))
+```
+
+What happens if we run `python stats.py`
+
+
+### Small Exercise
+
+Using an if/else statement, how can you adapt the current function to 
+handle the empty list case?  
+
+Commit this addition to the repository
+
+    git add stats.py
+    git commit -m "Handling example of empty list" 
+
+# Test Organization
+
+> "It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically."
+> 
+> -- [Hadley Wickham](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)
+
+## Separating Tests
+
+It is more common to place tests in a different file so that they don't
+clutter the module that does the real work.  Let's move our tests to a new
+file called `test_stats.py`.  Now, our `stats.py` file contains only:
+
+```python
+def mean(vals):
+    """Calculate the arithmetic mean of a list of numbers in vals"""
+    assert type(vals) is list, 'Input format is incorrect'
+    total = sum(vals)
+    length = len(vals)
+    if length == 0:
+    	return 0.0
+    else
+    	return total/length
+```
+
+and our `test_stats.py` file contains:
+
+```python
+print(mean([2, 4]))
+# print(mean("hello"))
+print(mean([]))
+```
+
+Commit your changes to the repository
+
+	git add test_stats.py
+	git commit -m "moving tests into a new file"
+
+## Create Unit Test Functions
+
+If we make these into functions, using asserts, we can make these print 
+statements more meaningful.  Let's make these changes to `test_stats.py`: 
+
+```python
+from stats import mean
+
+def test_mean():
+	assert mean([2,4]) == 3.0, 'Simple mean test'
+
+def test_empty_list():
+    assert mean([]) == 0.0, 'Empty list test'
+```
+
+To make it even easier to test, we can add some lines at the bottom of
+`test_stats.py` to run each of our tests:
+
+```python
+test_mean()
+test_empty_list()
+```
+
+### Short Exercise
+
+1. Add one more test function, testing a set of values of your choice.   
 2. **Practice using git:** Commit your changes to the repository
 
 	git add test_stats.py
-	git commit -m "Added more tests"
+	git commit -m "Added more test functions"
 
-## Using outside tools
+Example test: 
+
+```python
+def test_float_mean():
+    """Test some standard behavior when the result is not an integer."""
+    assert(mean([1, .5, .5]) == .666)
+```
+
+## Nose: A Python Testing Framework
 
 We could start adding some lines to give us more information about each test
 and why it might fail, but that could get tedious as we write basically the
@@ -225,8 +281,6 @@ ourselves, we might write some functions to keep track of the expected result,
 and report when it doesn't match the observed results.  However, that seems
 like something that many people need, so maybe someone else did that already,
 and we don't want to repeat others, either.
-
-# Nose: A Python Testing Framework
 
 The testing framework we'll discuss today is called `nose`. However, there are
 several other testing frameworks available in most languages. Most notably there
@@ -237,7 +291,7 @@ also [CTest](http://cmake.org/Wiki/CMake/Testing_With_CTest)).  There
 is at least one testing framework for R:
 [testthat](http://cran.r-project.org/web/packages/testthat/index.html).  
 
-## Where do nose tests live?
+### Nosetests
 
 Once `nose` is installed, you can run it in any directory and it will 
 find files that begin with `Test-`, `Test_`, `test-`, or
@@ -250,22 +304,35 @@ can also create test functions which are not unittest.TestCase
 subclasses if they are named with the configured testMatch regular
 expression.) -->
 
-## Nose Test Syntax
-
-To write a nose test, we use the same assertions as we've used so far.
-
-```python
-assert should_be_true()
-assert not should_not_be_true()
-```
-
 Since the `nose` package finds the tests and runs them automatically, we don't
 need to include lines that run the tests.  We can remove the lines that call
 the tests and just use our existing `test_stat.py` file like this:
 
     nosetests test_stat.py
 
-In addition to `nosetests`, `nose` itself defines number of 
+Commit your changes!  
+
+### Nose Functions
+
+`nose` also has a set of specific "assert-like" functions, that can be useful 
+in writing tests.  The simplest case is the `assert_equal` function: 
+
+```python
+from nose.tools import assert_equal
+
+def test_mean():
+    """Test some standard behavior of the mean() function."""
+    assert_equal(mean([2, 4]), 3, "Basic mean test fails")
+```
+
+### Short Exercise
+
+Change our "empty list" test to use assert_equal.  Commit your changes.  
+
+    git add test_stats.py
+    git commit -m "Introduced nose testing"
+
+`assert_equal` is not the only tool we can use.  `nose` defines many other 
 convenient assert functions which can
 be used to test more specific aspects of the code base.
 
@@ -282,73 +349,32 @@ assert_is_instance(a, b)
 # and many more!
 ```
 
-Adding an `import` statement, we can change one of our test to use `assert_equal`: 
+Let's add this to our code: 
+```
+from nose.tools import assert_equal, assert_almost_equal
 
 ```python
-from nose.tools import assert_equal
-
-def test_mean():
-    """Test some standard behavior of the mean() function."""
-    assert_equal(mean([2, 4]), 3)
+def test_float_mean():
+    """Test some standard behavior when the result is not an integer."""
+    assert_amost_equal(mean([1, .5, .5]) == .66, 1)
 ```
 
-**Practice using git:** Commit this change to the repository
+# A Testing Development Workflow
 
-    git add test_stats.py
-    git commit -m "Introduced nose testing"
+Add list functionality.  
 
-## Exercise
+# Exceptions
 
-### Quick aside:
-
-Be careful with division in Python, there's a gotcha!
-
-```
-In [1]: 3 / 2
-Out[1]: 1
-
-In [2]: 3.0 / 2
-Out[2]: 1.5
-```
-
-You can explicitly change the *type* of an object or variable in Python:
-
-```
-In [1]: float(3)
-Out[1]: 3.0
-
-In [2]: num = 4
-
-In [3]: float(num)
-Out[3]: 4.0
-```
-
-1. Fix the `mean()` function in `stats.py` to resolve the `test_float_mean()` function. 
-2. Change our other tests to use `assert_equal` and run with nosetests.
-3. Commit your changes. 
-4. Do you have any other failing tests?  Which `nose` functions could you use 
-to fix them?  Make those changes and commit them.  
-
-## More information
-
-Notice how much useful information you get from `nose` tests:
-* some .... to indicate progress
-* details about the failed test including the values that were not equal
-* the total number of tests that were completed
-* the time it took to run those tests
-
-# Advanced Testing
-
-What happens if someone tries to use this function with strings?
+What happens if someone tries to use this function with real (non-numerical) strings?
 
 ```python
 mean(['hello','world'])
 ```
 
 Some mistakes don't just give a wrong answer, but fail to even finish.  Python
-provides a mechanism to deal with this called **exceptions**.
+provides a mechanism to deal with this called **exceptions**.  
 
-In this example, python automatically *raises* a TypeError exception when we
+In this example, python automatically *raises* a ValueError exception when we
 try to take the sum of a string.
 
 In this case, we can add a test for the expected behavior: raising a TypeError
@@ -356,7 +382,7 @@ exception, by using the nose tool `assert_raises`:
 
 ```python
 def test_string_mean():
-    assert_raises(TypeError, mean, ['hello','world'])
+    assert_raises(ValueError, mean, ['hello','world'])
 ```
 
 **Practice using git:** Commit this change to the repository
