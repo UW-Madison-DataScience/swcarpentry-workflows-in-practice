@@ -179,7 +179,7 @@ test_mean()
 **Practice using git:** Commit this addition to the repository
 
     git add stats.py
-    git commit -m "Adding real function to test" 
+    git commit -m "Adding real test function" 
 
 ## Edge Cases
 
@@ -208,7 +208,7 @@ If we add the following statement to the bottom of `stats.py`,
 
 ```python
 def test_empty_list():
-    assert mean([]) == 0.0, 'Empty list test'```
+    assert mean([]) is None, 'Empty list test'```
 ```
 
 What happens if we run `python stats.py`?  
@@ -258,7 +258,7 @@ def mean(vals):
     total = sum(vals)
     length = len(vals)
     if length == 0:
-    	return "no data"
+    	return None
     else
     	return total/length
 ```
@@ -272,7 +272,7 @@ def test_mean():
 	assert mean([2,4]) == 3.0, 'Simple mean test'
 
 def test_empty_list():
-    assert mean([]) == 0.0, 'Empty list test'
+    assert mean([]) is None, 'Empty list test'
 
 def test_float_mean():
     """Test some standard behavior when the result is not an integer."""
@@ -404,7 +404,7 @@ def mean(vals):
     total = sum(new_vals)
     length = len(new_vals)
     if length == 0:
-    	return 0.0
+    	return None
     else
     	return total/length
 ```
