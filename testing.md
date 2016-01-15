@@ -185,7 +185,7 @@ If we add the following statement to the bottom of `stats.py`,
 print(mean([]))
 ```
 
-What happens if we run `python stats.py`
+What happens if we run `python stats.py`?  
 
 ### Short Exercise
 
@@ -213,7 +213,7 @@ def test_empty_list():
 ```
 
 To make it even easier to test, we can add some lines at the bottom of
-`test_stats.py` to run each of our tests:
+`stats.py` to run each of our tests:
 
 ```python
 test_mean()
@@ -370,7 +370,46 @@ def test_float_mean():
 
 # A Testing Development Workflow
 
-Add list functionality.  
+Maybe we want our function to be able to handle the following case: 
+
+```python
+mean(['1','2','3'])
+```
+
+(If you think this is farfetched, most scripting languages will read information 
+from the command line and files as strings.  So this is more possible than you 
+might think!)  
+
+Let's add a test to our file and try to edit the function to handle this case.  
+
+```python
+def test_str_list_mean():
+    """Create special list case"""
+    assert_equal(mean(['1','2','3']), 2)
+```
+
+```python
+def mean(vals):
+    """Calculate the arithmetic mean of a list of numbers in vals"""
+    assert type(vals) is list, 'Input format is incorrect'
+    
+    new_vals = []
+    for num in vals: 
+    	new_vals.append(int(num))
+	
+    total = sum(new_vals)
+    length = len(new_vals)
+    if length == 0:
+    	return 0.0
+    else
+    	return total/length
+```
+
+Now run our tests again with `nosetests`.  It's broken!  What didn't work and 
+how can we fix it?  
+
+This shows the benefit of having a test suite to catch our mistakes as we edit 
+our code and commit changes.  
 
 # Exceptions
 
@@ -383,7 +422,7 @@ mean(['hello','world'])
 Some mistakes don't just give a wrong answer, but fail to even finish.  Python
 provides a mechanism to deal with this called **exceptions**.  
 
-In this example, python automatically *raises* a ValueError exception when we
+In this example, Python automatically *raises* a ValueError exception when we
 try to take the sum of a string.
 
 In this case, we can add a test for the expected behavior: raising a TypeError
