@@ -450,8 +450,8 @@ def mean(vals):
     try:
         total = sum(vals)
         length = len(vals)
-    except TypeError:
-        raise TypeError("The list contains non-numeric elements")
+    except ValueError:
+        raise ValueError("The list contains non-numeric elements")
     return total/length
 ```
 **Practice using git:** Commit this change to the repository
