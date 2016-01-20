@@ -15,8 +15,13 @@ Links and tutorials for independent learning
 * [Interactive git tutorial on GitHub](https://try.github.io/levels/1/challenges/1) 
 * [Different git tutorial](http://pcottle.github.io/learnGitBranching/)
 * [git/GitHub command reference sheet (pdf)](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+* [MacDown](http://macdown.uranusjr.com/) wysiwyg markdown editor for Mac
 
 ## Python
+
+* Google's [python style guide](https://google.github.io/styleguide/pyguide.html)
+* [matplotlib](http://matplotlib.org)
+* [pylint](http://pylint.org)
 * [ipythonblocks](http://ipythonblocks.org/)
 * [PythonBlogs](http://www.pythonblogs.com/)
 * [Planet Python](http://planetpython.org/)
