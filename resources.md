@@ -20,21 +20,40 @@ Links and tutorials for independent learning
 ## Python
 
 * Google's [python style guide](https://google.github.io/styleguide/pyguide.html)
-* [matplotlib](http://matplotlib.org)
-* [pylint](http://pylint.org)
-* [ipythonblocks](http://ipythonblocks.org/)
-* [PythonBlogs](http://www.pythonblogs.com/)
-* [Planet Python](http://planetpython.org/)
-* [Real Python](https://realpython.com/blog/)
-* [Python Tips](http://pythontips.com/)
-* [effbot.org](http://effbot.org/)
-* [Mouse vs. python](http://www.blog.pythonlibrary.org/)
-* [Invent with Python](http://inventwithpython.com/blog/)
-* [PyDanny](http://www.pydanny.com/)
-* [Doug Hellman](https://doughellmann.com/blog/)
-* [Curious Efficiency](http://www.curiousefficiency.org/)
 * [Python v2.7 quick reference sheet (pdf)](http://www.astro.up.pt/~sousasag/Python_For_Astronomers/Python_qr.pdf)
 * [Python v3.0 quick reference sheet (pdf)](https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf)
+* [Anaconda](http://docs.continuum.io/anaconda/index) python installer and package manager
+* [PyPi](https://pypi.python.org/pypi) python package index
+* [Pylint](http://pylint.org) for code assessment
+
+* Iteractive programming
+	* [IPython](http://ipython.org/)
+	* [Jupyter](http://jupyter.org/)
+
+* Packages and modules
+	* [numpy](http://www.numpy.org/)
+	* [scipy](http://www.scipy.org/)
+	* [pandas](http://pandas.pydata.org/)
+	* [matplotlib](http://matplotlib.org)
+	* [ipythonblocks](http://ipythonblocks.org/)
+
+* Weekly email newsletters
+	* [Python Weekly](http://www.pythonweekly.com/)
+	* [Import Python](http://importpython.com/newsletter/)
+	* [O'Reilly Programming](http://www.oreilly.com/programming/newsletter.html)
+
+* Blogs
+	* [PythonBlogs](http://www.pythonblogs.com/)
+	* [Planet Python](http://planetpython.org/)
+	* [Real Python](https://realpython.com/blog/)
+	* [Python Tips](http://pythontips.com/)
+	* [effbot.org](http://effbot.org/)
+	* [Mouse vs. python](http://www.blog.pythonlibrary.org/)
+	* [Invent with Python](http://inventwithpython.com/blog/)
+	* [PyDanny](http://www.pydanny.com/)
+	* [Doug Hellman](https://doughellmann.com/blog/)
+	* [Curious Efficiency](http://www.curiousefficiency.org/)
+
 
 ## Misc
 * [Practice and improve your typing speed](http://www.keybr.com/)
