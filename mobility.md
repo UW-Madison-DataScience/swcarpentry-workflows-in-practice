@@ -75,6 +75,7 @@ just like the GitHub page says to:
 
 Before proceeding, make sure your "Server" repository is up-to-date 
 with your most recent changes to `planets`.
+
     $ git push -u origin master
     
 You should now be able to see that your repository files from the Laptop 
