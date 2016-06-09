@@ -6,7 +6,7 @@ Links and tutorials for independent learning
 * [Advanced Computing Initiative](http://aci.wisc.edu)
 * [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
 * [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
-* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
+* [Access to Lynda online lessons](https://it.wisc.edu/services/online-training-lynda-com/)
 * [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
 * [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long on your computer)
 
