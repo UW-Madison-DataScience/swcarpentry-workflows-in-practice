@@ -102,7 +102,7 @@ If you are uncomfortable having your name and details added to
 our public group repository, later, you can use a made-up name or celebrity 
 you think others will not choose.
 
-ON YOUR OWN
+##### ON YOUR OWN
 Commit the changes to your local repository, then push to YOUR GitHub repository. 
 Check your repository on GitHub to confirm the changes are there.
 
@@ -134,8 +134,8 @@ directory to pull and view changes that were made to the group repository:
     $ ls
 
 You should now see everyone else's files, and have completed the basic workflow:
-1. Periodically pull from the authoritative group repository to update your working copy.
-2. Push new changes in your working copy to your repository on GitHub.
-3. Create a pull request to the group repository so someone can review and merge your updates.
-*Repeat*
+- Periodically pull from the authoritative group repository to update your working copy.
+- Push new changes in your working copy to your repository on GitHub.
+- Create a pull request to the group repository so someone can review and merge your updates.
+- - Repeat
 ----
