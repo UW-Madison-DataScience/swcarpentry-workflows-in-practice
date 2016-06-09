@@ -137,5 +137,5 @@ You should now see everyone else's files, and have completed the basic workflow:
 - Periodically pull from the authoritative group repository to update your working copy.
 - Push new changes in your working copy to your repository on GitHub.
 - Create a pull request to the group repository so someone can review and merge your updates.
-- - Repeat
+- Repeat
 ----
