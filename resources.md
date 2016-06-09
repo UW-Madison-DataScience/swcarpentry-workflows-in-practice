@@ -2,14 +2,31 @@
 
 Links and tutorials for independent learning
 
+## At UW Madison
+* [Advanced Computing Initiative](http://aci.wisc.edu)
+* [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
+* [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
+* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
+* [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
+* [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long on your computer)
+
 ## Shell
 * [Explain Shell](http://explainshell.com/)
 * [Unix/Linux command reference sheet (pdf)](http://files.fosswire.com/2007/08/fwunixref.pdf)
 * [Another Unix/Linux command reference sheet (pdf)](https://cheat-sheets.s3.amazonaws.com/linux-commands-cheat-sheet-new.pdf)
 
-## Vi and Vim Editor
-* [Basic vi/vim command reference sheet (pdf)](http://web.mit.edu/merolish/Public/vi-ref.pdf)
-* [Detailed vim command reference sheet (pdf)](http://tnerual.eriogerg.free.fr/vimqrc.pdf)
+## Text Editors
+* nano
+	* [Beginner's guide to nano](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
+	* [Nano command manual](http://www.nano-editor.org/dist/v2.0/nano.html)
+* emacs
+	* [Absolute beginner's guide to emacs](http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/)
+	* [Tour of emacs](http://www.gnu.org/software/emacs/tour/)
+* vi/vim 
+	* [Vim tutorial](https://blog.interlinked.org/tutorials/vim_tutorial.html)
+	* [Interactive vim tutorial](http://www.openvim.com/)
+	* [Basic vi/vim command reference sheet (pdf)](http://web.mit.edu/merolish/Public/vi-ref.pdf)
+	* [Detailed vim command reference sheet (pdf)](http://tnerual.eriogerg.free.fr/vimqrc.pdf)
 
 ## Git
 * [Interactive git tutorial on GitHub](https://try.github.io/levels/1/challenges/1) 
@@ -60,13 +77,6 @@ Links and tutorials for independent learning
 * [Improve your typing speed with practice and games](http://10fastfingers.com/)
 * [Vim adventures](http://vim-adventures.com/)
 * [Cheatography (various "cheat sheets" and quick references)](http://www.cheatography.com/)
-
-## At UW Madison
-* [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
-* [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
-* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
-* [Advanced Computing Initiative](http://aci.wisc.edu/services/large-scale/)
-* [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
 
 # Funny things
 
