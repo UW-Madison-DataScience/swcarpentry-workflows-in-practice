@@ -116,6 +116,10 @@ Make sure that the "base fork" is the "UW-Madison-ACI" repository
 while the "head fork" is your own copy on GitHub, then click the 
 green "Create pull request" button.
 
+Confirm the pull request comment, then click the next green "Create pull request" 
+button. You should now see your pull request! If you'd like to see the pull requests 
+of other workshop attendees as they're added, refresh the "Pull requests" tab page.
+
 ## Wait for the Workshop Instructors to Merge Your Pull Request
 
 The instructors will merge your pull request after reviewing your changes, similar 
