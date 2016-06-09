@@ -4,10 +4,6 @@
 
 ## Overview
 
-One of the best ways to collaborate on programs and other text-based files 
-when collaborating with others is to use GitHub (or a group server) to host 
-an "authoritative" repository that everyone can contribute to.
-
 Let's say you've got a shared set of files in your research group that 
 everyone will need to see and contribute to AND you'd like to use version 
 control for this set of files. Instead of sending new updates of a project folder 
@@ -36,49 +32,106 @@ advantage over using a more private group server or department filesystem.)
 
 For this example, we'll use the UW-Madison-ACI organization account for the 
 authoritative repository. While we won't go through the details of creating 
-and managing an organization account in GitHub, your research group could 
-create one on the following page: https://github.com/organizations/new
+and managing a new organization account in GitHub, your research group could 
+create one through the following page: https://github.com/organizations/new
 
-Public group repositories are FREE, but your group could opt for a a private, 
+Public group repositories are FREE, but your group could opt for a private, 
 fee-based repository, instead. For public organizations, anyone 
 with access to GitHub can view the contents of the repositories and make pull 
 requests (just as for GitHub user accounts). With either type of repository (public 
-or private), the 'owners' of an organization control who has the authoritiy to merge pull 
+or private), the 'owners' of an organization control who has the authority to merge pull 
 requests and otherwise directly affect repositories in the account.
 
 More details about creating and managing organization repositories can be found 
 in GitHub's help pages: 
 https://help.github.com/articles/creating-a-new-organization-account/
 
-## Exercise: Clone the Group Repository to Your Computer
+## Exercise: Fork the Repository from the Organization to Your GitHub Account
 
-First, let's navigate to our group repository in GitHub, in this case, the 
-'swcarpentry-workflows-in-practice' in the UW-Madison-ACI account, 
+First, let's navigate to our group repository in GitHub, in this case, the
+'swcarpentry-workflows-in-practice' in the UW-Madison-ACI account,
 here: https://github.com/UW-Madison-ACI/swcarpentry-workflows-in-practice
 
-Click the green "Clone or download" button to the right, then copy the address 
+Click the 'Fork' button in the top right. If GitHub wants you to choose 
+which account to fork to, make sure to choose YOUR user account.
+
+## Exercise: Clone the Repository from Your GitHub Account to Your Computer
+
+Now, from the repository page in YOUR GitHub account, click the green "Clone 
+or download" button to the right and copy the address 
 of the repository in preparation for cloning it to your computer. Use the command 
-line to navigate to your desired directory for the repository, then type
+line to navigate to your desired directory for the repository: (The "YOU" in 
+the below address will be replaced withyour GitHub username.)
 
-    $ git clone https://github.com/UW-Madison-ACI/swcarpentry-workflows-in-practice.git
+    $ git clone https://github.com/YOU/swcarpentry-workflows-in-practice.git
 
-You've now got a copy of the group repository on your laptop! You can check it 
+Now you've got a copy of the group repository on your laptop! You can check it 
 by running the following commands:
 
     $ cd swcarpentry-workflows-in-practice.git
     $ ls
     $ git status
 
-## More to Come
+Also, YOUR GitHub copy of the repository has been automatically set 
+as the "origin" remote for the local repository. Check it with:
 
+    $ git remote -v
 
-#### More than One Way to Clone
+## Exercise: Add the Organization as the Upstream Remote
 
-If the repository is served on an external (e.g., university)
-server, you'll likely have to use git's ssh cloning
-protocol. [Here](http://git-scm.com/book/en/Git-on-the-Server-The-Protocols#The-SSH-Protocol)'s
-a great, short explanation of how to do that. GitHub's cloning protocol is
-pretty simple, and described on the [Fork help
-page](https://help.github.com/articles/fork-a-repo#step-2-clone-your-fork).
+In order to make sure that you'll be able to pull future changes 
+from the authoritative group repository, add it as another remote 
+named "upstream" to represent the fact that it exists upstream from the "origin" 
+copy you cloned from YOUR GitHub account.
 
+    $ git remote add upstream https://github.com/UW-Madison-ACI/swcarpentry-workflows-in-practice.git
+    $ git remote -v
+ 
+## Exercise: Create a New File and Push to Your GitHub Account
+
+Now, create a .txt file in your repository directory on your laptop, named 
+according to your first initial and last name 
+(like LMichael.txt) with three lines of inoccuous information about yourself, 
+similar to the following:
+    
+    Lauren Michael
+    I like blue skies.
+    Horses are cool.
+
+If you are uncomfortable having your name and details added to 
+our public group repository, later, you can use a made-up name or celebrity 
+you think others will not choose.
+
+ON YOUR OWN
+Commit the changes to your local repository, then push to YOUR GitHub repository. 
+Check your repository on GitHub to confirm the changes are there.
+
+## Exercise: Create a Pull Request to the Group Repository
+
+When viewing your GitHub user copy of the `swcarpentry-workflows-in-practice` 
+repository, click the "Pull requests" tab toward the top of the page. Then, 
+click the green "New pull request" button to start a new pull request.
+
+Make sure that the "base fork" is the "UW-Madison-ACI" repository 
+while the "head fork" is your own copy on GitHub, then click the 
+green "Create pull request" button.
+
+## Wait for the Workshop Instructors to Merge Your Pull Request
+
+The instructors will merge your pull request after reviewing your changes, similar 
+to how group members would for a research group repository.
+
+## Exercise: Update your Local Copy from the Group Repository
+
+Run the following commands within your local `swcarpentry-workflows-in-practice` 
+directory to pull and view changes that were made to the group repository:
+
+    $ git pull upstream master
+    $ ls
+
+You should now see everyone else's files, and have completed the basic workflow:
+1. Periodically pull from the authoritative group repository to update your working copy.
+2. Push new changes in your working copy to your repository on GitHub.
+3. Create a pull request to the group repository so someone can review and merge your updates.
+*Repeat*
 ----
