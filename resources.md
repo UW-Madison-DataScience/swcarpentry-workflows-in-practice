@@ -100,3 +100,4 @@ Humorous resources for breaking up, introducing, or concluding a lesson
 * [XKCD matplotlib theme](http://matplotlib.org/examples/showcase/xkcd.html)
 * [XKCD: Python](https://xkcd.com/353/)
 * [Github: A gallery of interesting IPython Notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks)
+* [XKCD: label your axes](https://xkcd.com/833/)
