@@ -1,3 +1,0 @@
-Steve Meyer
-I like libraries.
-Ruby code is neat.
