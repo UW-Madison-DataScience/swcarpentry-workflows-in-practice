@@ -4,6 +4,10 @@
 **Based on materials by Katy Huff, Rachel Slaybaugh, and Anthony
 Scopatz, original document from [boot-camps](https://github.com/UW-Madison-ACI/boot-camps/blob/2015-06-03/python/testing/Readme.md)**
 
+**NOTE: This lesson relies on the use of the `nose` testing framework for
+  Python.  This testing framework is no longer supported.  The concepts
+  introduced here are still relevant, but the specific syntax may not be.**
+
 # What is testing?
 
 Software testing is a process by which one or more expected behaviors
