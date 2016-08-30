@@ -32,7 +32,7 @@ Links and tutorials for independent learning
 ## Git
 * [Interactive git tutorial on GitHub](https://try.github.io/levels/1/challenges/1) 
 * [Different git tutorial](http://pcottle.github.io/learnGitBranching/)
-* [git/GitHub command reference sheet (pdf)](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+* [git/GitHub command reference sheet (pdf)](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 * [MacDown](http://macdown.uranusjr.com/) wysiwyg markdown editor for Mac
 
 ## Python
