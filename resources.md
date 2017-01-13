@@ -4,11 +4,12 @@ Links and tutorials for independent learning
 
 ## At UW Madison
 * [Advanced Computing Initiative](http://aci.wisc.edu)
+* [Research Data Services](http://researchdata.wisc.edu/)
+* [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long or crashes on your computer)
 * [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
 * [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
-* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
+* [Access to Lynda online lessons](https://it.wisc.edu/services/online-training-lynda-com/)
 * [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
-* [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long on your computer)
 
 ## Shell
 * [Explain Shell](http://explainshell.com/)
@@ -31,7 +32,7 @@ Links and tutorials for independent learning
 ## Git
 * [Interactive git tutorial on GitHub](https://try.github.io/levels/1/challenges/1) 
 * [Different git tutorial](http://pcottle.github.io/learnGitBranching/)
-* [git/GitHub command reference sheet (pdf)](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+* [git/GitHub command reference sheet (pdf)](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 * [MacDown](http://macdown.uranusjr.com/) wysiwyg markdown editor for Mac
 
 ## Python
@@ -100,3 +101,4 @@ Humorous resources for breaking up, introducing, or concluding a lesson
 * [XKCD matplotlib theme](http://matplotlib.org/examples/showcase/xkcd.html)
 * [XKCD: Python](https://xkcd.com/353/)
 * [Github: A gallery of interesting IPython Notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks)
+* [XKCD: label your axes](https://xkcd.com/833/)
