@@ -1,9 +1,16 @@
-# Cool resources
+# Post-Workshop resources
 
-Links and tutorials for independent learning
+## Stay in Touch After the Workshop!
 
-## At UW Madison
+* For help/questions, email our team of instructors/helpers: swc-dc-help@lists.wisc.edu
+* To join us as a helper/instructor in the future, send us an email to swc-dc@lists.wisc.edu, and/or join our mailing list by sending a blank email to join-swc-dc@lists.wisc.edu
+* Learn about future workshops by [joining the ACI Mailing List](https://aci.wisc.edu/about/). 
+
+# Links and tutorials for independent learning
+
+## Through UW-Madison
 * [Advanced Computing Initiative](http://aci.wisc.edu)
+	* [Research Communities on Campus](https://aci.wisc.edu/resources/#communities-overview)
 * [Research Data Services](http://researchdata.wisc.edu/)
 * [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long or crashes on your computer)
 * [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
