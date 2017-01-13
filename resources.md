@@ -10,7 +10,7 @@
 
 ## Through UW-Madison
 * [Advanced Computing Initiative](http://aci.wisc.edu)
-	* [Research Communities on Campus](https://aci.wisc.edu/resources/#communities-overview)
+	* [Researcher Communities on Campus](https://aci.wisc.edu/resources/#communities-overview)
 * [Research Data Services](http://researchdata.wisc.edu/)
 * [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long or crashes on your computer)
 * [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
