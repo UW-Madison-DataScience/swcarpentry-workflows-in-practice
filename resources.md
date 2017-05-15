@@ -17,6 +17,8 @@
 * [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
 * [Access to Lynda online lessons](https://it.wisc.edu/services/online-training-lynda-com/)
 * [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
+* [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long on your computer)
+* [Center for Open Science](https://cos.io/) and the [Open Science Framework](https://osf.io/)
 
 ## Shell
 * [Explain Shell](http://explainshell.com/)
