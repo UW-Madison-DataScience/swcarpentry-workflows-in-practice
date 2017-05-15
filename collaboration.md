@@ -68,7 +68,7 @@ the below address will be replaced withyour GitHub username.)
 Now you've got a copy of the group repository on your laptop! You can check it 
 by running the following commands:
 
-    $ cd swcarpentry-workflows-in-practice.git
+    $ cd swcarpentry-workflows-in-practice
     $ ls
     $ git status
 

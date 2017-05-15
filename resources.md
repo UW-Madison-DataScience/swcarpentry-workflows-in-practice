@@ -1,12 +1,21 @@
-# Cool resources
+# Post-Workshop resources
 
-Links and tutorials for independent learning
+## Stay in Touch After the Workshop!
 
-## At UW Madison
+* For help/questions, email our team of instructors/helpers: swc-dc-help@lists.wisc.edu
+* To join us as a helper/instructor in the future, send us an email to swc-dc@lists.wisc.edu, and/or join our mailing list by sending a blank email to join-swc-dc@lists.wisc.edu
+* Learn about future workshops by [joining the ACI Mailing List](https://aci.wisc.edu/about/). 
+
+# Links and tutorials for independent learning
+
+## Through UW-Madison
 * [Advanced Computing Initiative](http://aci.wisc.edu)
+	* [Researcher Communities on Campus](https://aci.wisc.edu/resources/#communities-overview)
+* [Research Data Services](http://researchdata.wisc.edu/)
+* [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long or crashes on your computer)
 * [DoIT student training](https://sts.doit.wisc.edu/index.aspx)
 * [SSCC courses](https://www.ssc.wisc.edu/sscc_jsp/training/index.jsp)
-* [Access to Lynda online lessons](https://www.doit.wisc.edu/services/online-training/)
+* [Access to Lynda online lessons](https://it.wisc.edu/services/online-training-lynda-com/)
 * [UW Policy on Software (Intellectual Property) Ownership](https://www.wisconsin.edu/financial-administration/financial-administrative-policies-procedures/gapp-numeric-index/g10-computer-software-ownership/)
 * [Center for High Throughput Computing](http://chtc.cs.wisc.edu/) (when a program takes too long on your computer)
 * [Center for Open Science](https://cos.io/) and the [Open Science Framework](https://osf.io/)
@@ -32,7 +41,7 @@ Links and tutorials for independent learning
 ## Git
 * [Interactive git tutorial on GitHub](https://try.github.io/levels/1/challenges/1) 
 * [Different git tutorial](http://pcottle.github.io/learnGitBranching/)
-* [git/GitHub command reference sheet (pdf)](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+* [git/GitHub command reference sheet (pdf)](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 * [MacDown](http://macdown.uranusjr.com/) wysiwyg markdown editor for Mac
 
 ## Python
