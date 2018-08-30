@@ -4,7 +4,7 @@
 
 * For help/questions, email our team of instructors/helpers: swc-dc-help@lists.wisc.edu
 * To join us as a helper/instructor in the future, send us an email to swc-dc@lists.wisc.edu, and/or join our mailing list by sending a blank email to join-swc-dc@lists.wisc.edu
-* Learn about future workshops and campus computing resources by joining the [Data Science Hub](http://datascience.wisc.edu/) email list.  To join send an email to [join-dshubcommunity@lists.wsic.edu](mailto:join-dshubcommunity@lists.wsic.edu) 
+* Learn about future workshops and campus computing resources by joining the [Data Science Hub](http://datascience.wisc.edu/) email list.  To join send an email to [join-dshubcommunity@lists.wisc.edu](mailto:join-dshubcommunity@lists.wisc.edu) 
 
 # Links and tutorials for independent learning
 
